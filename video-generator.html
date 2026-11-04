@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INDRAVERSE AI Video Generator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080d1b;
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 35px auto;
+      background: #111a2e;
+      border: 1px solid #263653;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .logo {
+      color: #55aaff;
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 22px 0 10px;
+      font-size: 25px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aab8d0;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin: 17px 0 9px;
+      font-weight: bold;
+    }
+
+    textarea, select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #344968;
+      background: #080f20;
+      color: white;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #1677ff, #7b4dff);
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 13px;
+      border-radius: 10px;
+      background: #202b40;
+      color: #c5d3e8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #70b7ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">🚀 INDRAVERSE AI</div>
+
+    <h1>Text to Video Generator</h1>
+    <p class="subtitle">
+      अपने Text को AI Video में बदलने की तैयारी करें।
+    </p>
+
+    <label for="prompt">अपना Video Prompt लिखें</label>
+    <textarea id="prompt"
+      placeholder="उदाहरण: अंतरिक्ष में पृथ्वी का सुंदर दृश्य..."></textarea>
+
+    <label for="style">Video Style</label>
+    <select id="style">
+      <option>Cinematic</option>
+      <option>Realistic</option>
+      <option>Animation</option>
+      <option>Fantasy</option>
+    </select>
+
+    <label for="duration">Video Duration</label>
+    <select id="duration">
+      <option>5 Seconds</option>
+      <option>10 Seconds</option>
+    </select>
+
+    <button onclick="generateVideo()">
+      🎬 Generate Video
+    </button>
+
+    <div class="notice" id="status">
+      ℹ️ Demo Version: AI Video API अभी कनेक्ट नहीं है।
+      अगला चरण सुरक्षित API कनेक्शन होगा।
+    </div>
+  </div>
+
+  <script>
+    function generateVideo() {
+      const prompt = document.getElementById("prompt").value.trim();
+      const status = document.getElementById("status");
+
+      if (!prompt) {
+        status.textContent = "पहले अपना Video Prompt लिखें।";
+        return;
+      }
+
+      status.textContent =
+        "आपका Prompt तैयार है। असली Video Generation के लिए सुरक्षित AI API जोड़ना बाकी है।";
+    }
+  </script>
+</body>
+</html>
