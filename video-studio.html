@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INDRAVERSE AI Video Studio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #080d1b;
+      color: #fff;
+    }
+    .container {
+      max-width: 700px;
+      margin: 25px auto;
+      padding: 22px;
+      background: #121b30;
+      border: 1px solid #263858;
+      border-radius: 18px;
+    }
+    h1 { color: #65baff; text-align: center; }
+    .subtitle { color: #b8c6dc; text-align: center; }
+    label {
+      display: block;
+      margin: 18px 0 8px;
+      font-weight: bold;
+    }
+    textarea, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #405477;
+      border-radius: 10px;
+      background: #091225;
+      color: white;
+      font-size: 15px;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    button, .back {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #1677ff, #8b5cf6);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .preview {
+      margin-top: 22px;
+      min-height: 180px;
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #a9bad4;
+      background: #080d1b;
+      border: 1px dashed #526789;
+      border-radius: 14px;
+    }
+    #message {
+      margin-top: 15px;
+      color: #ffd27a;
+      line-height: 1.6;
+    }
+    .note {
+      color: #a9bad4;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>🎬 INDRAVERSE AI Video Studio</h1>
+    <p class="subtitle">अपना आइडिया लिखें और वीडियो की सेटिंग चुनें।</p>
+
+    <label for="prompt">📝 Video Prompt</label>
+    <textarea id="prompt" placeholder="बताइए आप कैसा वीडियो बनाना चाहते हैं..."></textarea>
+
+    <label for="style">🎨 Video Style</label>
+    <select id="style">
+      <option>Cinematic</option>
+      <option>Realistic</option>
+      <option>Anime</option>
+      <option>3D Animation</option>
+      <option>Cartoon</option>
+    </select>
+
+    <label for="ratio">📱 Video Size</label>
+    <select id="ratio">
+      <option>9:16 - YouTube Shorts / Reels</option>
+      <option>16:9 - YouTube</option>
+      <option>1:1 - Square</option>
+    </select>
+
+    <label for="duration">⏱️ Video Duration</label>
+    <select id="duration">
+      <option>5 Seconds</option>
+      <option>10 Seconds</option>
+      <option>15 Seconds</option>
+      <option>30 Seconds</option>
+    </select>
+
+    <button onclick="generateDemo()">✨ Generate Video Demo</button>
+
+    <div class="preview" id="preview">
+      🎥 आपका वीडियो Preview यहाँ दिखाई देगा।
+    </div>
+
+    <p id="message"></p>
+    <p class="note">
+      अभी यह Demo Interface है। असली वीडियो बनाने के लिए सुरक्षित
+      AI Video API और Backend जोड़ना बाकी है।
+    </p>
+
+    <a class="back" href="index.html">← Back to AI HUB</a>
+  </main>
+
+  <script>
+    function generateDemo() {
+      const prompt = document.getElementById("prompt").value.trim();
+      const style = document.getElementById("style").value;
+      const ratio = document.getElementById("ratio").value;
+      const duration = document.getElementById("duration").value;
+      const message = document.getElementById("message");
+      const preview = document.getElementById("preview");
+
+      if (!prompt) {
+        message.textContent = "पहले अपना Video Prompt लिखें।";
+        return;
+      }
+
+      preview.textContent = "✅ आपकी Video Settings तैयार हैं!";
+      message.textContent =
+        "Prompt: " + prompt +
+        " | Style: " + style +
+        " | Size: " + ratio +
+        " | Duration: " + duration +
+        " — यह अभी Demo है, असली वीडियो जनरेट नहीं हुआ है।";
+    }
+  </script>
+</body>
+</html>
