@@ -109,12 +109,49 @@
       <option>15 Seconds</option>
       <option>30 Seconds</option>
     </select>
+    
+<h3>💡 Ready-made Prompt Ideas</h3>
+
+<button type="button" onclick="choosePrompt('A beautiful futuristic city in space, cinematic lighting')">🌌 Space City</button>
+<button type="button" onclick="choosePrompt('A cute 3D animated robot exploring a colorful world')">🤖 3D Robot</button>
+<button type="button" onclick="choosePrompt('A beautiful mountain landscape with flowing waterfalls')">🏔️ Nature</button>
+<button type="button" onclick="choosePrompt('A futuristic sports car driving through a neon city')">🏎️ Future Car</button>
+<button type="button" onclick="choosePrompt('An astronaut exploring a mysterious planet')">🚀 Astronaut</button>
+<button type="button" onclick="copyPrompt()">📋 Copy Prompt</button>
+    
 
     <button onclick="generateDemo()">✨ Generate Video Demo</button>
 
     <div class="preview" id="preview">
       🎥 आपका वीडियो Preview यहाँ दिखाई देगा।
     </div>
+    
+function choosePrompt(text) {
+  document.getElementById("prompt").value = text;
+  document.getElementById("message").textContent =
+    "✅ Prompt चुन लिया गया!";
+}
+
+function copyPrompt() {
+  const prompt = document.getElementById("prompt").value;
+
+  if (!prompt.trim()) {
+    document.getElementById("message").textContent =
+      "पहले Prompt चुनें या लिखें।";
+    return;
+  }
+
+  navigator.clipboard.writeText(prompt)
+    .then(() => {
+      document.getElementById("message").textContent =
+        "✅ Prompt कॉपी हो गया!";
+    })
+    .catch(() => {
+      document.getElementById("message").textContent =
+        "कॉपी नहीं हुआ। Prompt को मैन्युअली कॉपी करें।";
+    });
+}
+    
 
     <p id="message"></p>
     <p class="note">
