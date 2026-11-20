@@ -126,6 +126,19 @@
       🎥 आपका वीडियो Preview यहाँ दिखाई देगा।
     </div>
     
+    
+
+    <p id="message"></p>
+    <p class="note">
+      अभी यह Demo Interface है। असली वीडियो बनाने के लिए सुरक्षित
+      AI Video API और Backend जोड़ना बाकी है।
+    </p>
+
+    <a class="back" href="index.html">← Back to AI HUB</a>
+  </main>
+
+  <script>
+   
 function choosePrompt(text) {
   document.getElementById("prompt").value = text;
   document.getElementById("message").textContent =
@@ -148,21 +161,9 @@ function copyPrompt() {
     })
     .catch(() => {
       document.getElementById("message").textContent =
-        "कॉपी नहीं हुआ। Prompt को मैन्युअली कॉपी करें।";
+        "कॉपी नहीं हुआ।";
     });
-}
-    
-
-    <p id="message"></p>
-    <p class="note">
-      अभी यह Demo Interface है। असली वीडियो बनाने के लिए सुरक्षित
-      AI Video API और Backend जोड़ना बाकी है।
-    </p>
-
-    <a class="back" href="index.html">← Back to AI HUB</a>
-  </main>
-
-  <script>
+    }
     function generateDemo() {
       const prompt = document.getElementById("prompt").value.trim();
       const style = document.getElementById("style").value;
